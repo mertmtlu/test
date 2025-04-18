@@ -1,0 +1,69 @@
+body {
+    font-family: Arial, sans-serif;
+    height: 100%;
+}
+
+.main {
+    height: 90%;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns grid */
+    gap: 20px; /* Adjust the spacing between grid items */
+}
+
+.grid-item {
+    background-color: #f8f8f8;
+    padding: 10px;
+    text-align: center;
+}
+
+.chart-container {
+    position: relative;
+    width: 100%;
+    height: 375px; /* Adjust as needed */
+}
+
+.axis-select {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.full-screen-chart {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    background-color: white;
+}
+
+.full-screen-chart canvas {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.fullscreen-button {
+    position: absolute;
+    margin-right: 20px;
+    right: 0px;
+    top: 0px;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 20px;
+    padding-bottom: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.fullscreen-button:hover {
+    background: linear-gradient(135deg, #ffffff91, #b4bfcc00);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}

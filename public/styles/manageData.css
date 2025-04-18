@@ -1,0 +1,115 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+.side-panel {
+    background-color: #f0f0f0;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    left: 0;
+    /* Height of the navbar */
+    height: calc(100%);
+    /* Subtract height of the navbar */
+    overflow-y: auto;
+    width: 500px;
+    /* Adjust width as needed */
+    z-index: 1001;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.resizer {
+    width: 10px;
+    cursor: col-resize;
+    background-color: #ddd;
+    position: fixed;
+    left: 500px;
+    /* Should match side-panel width */
+    /* Height of the navbar */
+    height: calc(100%);
+    /* Subtract height of the navbar */
+    z-index: 100;
+}
+
+.content {
+    padding: 20px;
+    margin-left: 510px;
+    /* Should be side-panel width + resizer width */
+    flex: 1;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+.checkbox-group {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    margin-left: 20px;
+}
+
+#filterInput {
+    margin-top: 10px;
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.checkbox-group label {
+    white-space: normal;
+}
+
+tfoot input {
+    width: 100%;
+    padding: 3px;
+    box-sizing: border-box;
+}
+
+.import-division,
+.checkbox-division {
+    margin-bottom: 20px;
+}
+
+.side-panel:hover {
+    transform: translateX(0);
+}
+
+.export-button {
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+}
+
+#dataTable th,
+#dataTable td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.dropdown-menu {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.mainContent {
+    /* Height of the navbar */
+    height: calc(100%);
+    /* Subtract height of the navbar */
+    width: 100%;
+}

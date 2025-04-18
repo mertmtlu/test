@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giriş Yap</title>
+    <link rel="stylesheet" href="./styles/login.css">
+    <style src="./login.css"></style>
+    <!-- Bootstrap CSS -->
+</head>
+
+<body>
+    <div class="login-container">
+        <h1>TEİAŞ</h1>
+        <form id="loginForm" novalidate>
+            <label for="username">Kullanıcı Adı</label>
+            <input type="text" id="username" name="username" placeholder="Kullanıcı Adı" required>
+            <div id="usernameError" class="error-message">Lütfen kullanıcı adınızı giriniz.</div>
+
+            <label for="password">Şifre</label>
+            <input type="password" id="password" name="password" placeholder="Şifre" required>
+            <div id="passwordError" class="error-message">Lütfen şifrenizi giriniz.</div>
+
+            <button type="submit">Giriş Yap</button>
+        </form>
+        <div class="extra-options">
+            <p>
+                <a href="./forgotPassword.html">Şifremi Unuttum?</a> |
+                <a href="./register.html">Kaydol</a>
+            </p>
+        </div>
+    </div>
+
+    <div id="toast" class="toast hidden">
+        <p id="toastMessage"></p>
+    </div>
+
+    <script type="module" src="./scripts/login.js"></script>
+</body>
+
+</html>

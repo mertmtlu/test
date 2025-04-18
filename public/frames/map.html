@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harita</title>
+
+    <link rel="stylesheet" href="../styles/map.css">
+
+    <!-- DataTables CSS CDN -->
+    <link href="https://cdn.datatables.net/v/dt/dt-2.0.8/datatables.min.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+    <!-- Font Awesome CSS for icons (optional) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-groupedlayercontrol/dist/leaflet.groupedlayercontrol.min.css" />
+
+</head>
+
+<body>
+    <div class="content">
+        <div class="sidebar" id="sidebarLocation">
+            <div class="dropdown-container">
+                <h5>TM Konumları:</h5>
+                <input type="text" id="searchBox" class="form-control mb-2" placeholder="Arama yapın..">
+                <div id="dropdownMenu" class="dropdown">
+                    <!-- Options will be added dynamically -->
+                </div>
+            </div>
+
+
+            <h5 style="margin-top: 10px;">Özet</h5>
+            <div class="dropdownData">
+                <button class="btn btn-outline-secondary dropdown-toggle btn-block" type="button"
+                    id="dataTypeDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Bölge
+                    Seçin</button>
+                <div class="dropdown-menu" aria-labelledby="dataTypeDropdownMenu" id="dropdownMenuData">
+
+                </div>
+            </div>
+            <div class="d-flex">
+                <button class="btn btn-outline-primary" id="focus">Odakla</button>
+                <button class="btn btn-outline-secondary" id="removeFocus">Kaldır</button>
+            </div>
+
+            <button id="goToCharts" class="btn btn-outline-primary btn-lg btn-block" style="margin-top: 5px;">Grafiklere
+                Git</button>
+
+        </div>
+        <div id="map" class="map-container"></div>
+    </div>
+
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    
+    <script src="https://unpkg.com/leaflet-groupedlayercontrol/dist/leaflet.groupedlayercontrol.min.js"></script>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Bootstrap Bundle with Popper.js (includes Popper.js) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.bundle.min.js"></script>
+
+    <!-- DataTables JS CDN -->
+    <script src="https://cdn.datatables.net/v/dt/dt-2.0.8/datatables.min.js"></script>
+
+    <!-- XLSX Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+
+    <!-- Charts CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-omnivore/0.3.4/leaflet-omnivore.min.js"></script>
+
+    <script src="../scripts/map/betterScale.js"></script>
+
+    <script type="module" src="../scripts/map/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,172 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+main {
+    flex: 1;
+    margin-top: 56px;
+    /* Adjust based on your navbar height */
+    overflow: hidden;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.download {
+    border: 1px solid #a8aaac;
+    border-radius: 10px;
+}
+
+.toggle-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    height: 100%;
+}
+
+.toggle-switch {
+    display: flex;
+    align-items: center;
+    background-color: #f8f9fa;
+    border-radius: 30px !important;
+    border: 1px solid #dee2e6;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.toggle-option {
+    padding: 7px 15px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+    color: #495057;
+    text-align: center;
+    font-weight: 500;
+    min-width: 110px;
+}
+
+.toggle-option.active {
+    color: white;
+}
+
+.toggle-slider {
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    background-color: #0275d8;
+    /* Bootstrap primary blue */
+    border-radius: 30px !important;
+    transition: all 0.3s ease;
+    left: 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-slider.right {
+    left: 50%;
+}
+
+.filter-container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    border-radius: 30px !important;
+}
+
+.filter-button {
+    padding: 7px 15px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: white;
+    background-color: #0275d8;
+    border-radius: 30px !important;
+    /* Match the border radius from image */
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    width: 150px;
+    text-align: left;
+    /* Left align text to match image */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: relative;
+    border-radius: 30px !important;
+    /* For arrow positioning */
+}
+
+.filter-button:hover,
+.filter-button:focus,
+.filter-button:active,
+.filter-button.show {
+    color: white !important;
+    background-color: #0275d8 !important;
+    border-color: rgba(0, 0, 0, 0.1);
+    border-radius: 30px !important;
+}
+
+/* Remove standard dropdown arrow */
+.filter-button::after {
+    display: inline-block;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 30px !important;
+}
+
+.filter-dropdown-menu {
+    width: 150px;
+    border-radius: 30px !important;
+    /* Match the border radius */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    padding: 0;
+    margin-top: 3px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.filter-option {
+    padding: 8px 15px;
+    text-align: left;
+    /* Left align to match button */
+    font-size: 0.85rem;
+    color: #495057;
+    transition: background-color 0.2s, color 0.2s;
+    border-radius: 30px !important;
+}
+
+.filter-option:hover,
+.filter-option:active,
+.filter-option:focus {
+    background-color: #e6f2ff;
+    color: #0275d8;
+    border-radius: 30px !important;
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+    background-color: #0275d8 !important;
+    color: white !important;
+    border-radius: 30px !important;
+}

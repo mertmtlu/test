@@ -1,0 +1,585 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+/* Add this to your CSS file */
+
+.leaflet-custom-layers-control {
+    position: relative;
+}
+
+.leaflet-custom-layers-button {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.leaflet-custom-layers-button:hover {
+    background-color: #f8f9fa;
+}
+
+.leaflet-custom-layers-dropdown {
+    right: 0;
+    margin-top: 2px;
+    border-radius: 4px;
+}
+
+.leaflet-custom-layers-item:hover {
+    background-color: #f8f9fa;
+}
+
+/* Add Font Awesome for the layers icon */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+.content {
+    flex: 1;
+    overflow-x: auto;
+    width: 100%;
+    /* Offset for fixed navbar */
+    display: flex;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #f0f0f0;
+    padding: 10px;
+    overflow-y: auto;
+    /* Enable vertical scrolling */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.map-container {
+    flex: 1;
+    height: calc(100vh - 60px);
+    /* Full height minus the navbar */
+}
+
+#map {
+    height: 100%;
+}
+
+.dropdown-container {
+    position: relative;
+}
+
+.dropdown-menu {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.dropdown {
+    position: absolute;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    z-index: 1000;
+}
+
+.dropdown-item {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.dropdown-item:hover {
+    background-color: #e9ecef;
+}
+
+.leaflet-control-layers {
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.65);
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #333;
+}
+
+.leaflet-control-layers label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.leaflet-control-layers input[type="radio"] {
+    margin-right: 5px;
+}
+
+.leaflet-control-layers .leaflet-control-layers-list {
+    padding: 0;
+}
+
+.leaflet-control-layers a {
+    color: #0078A8;
+}
+
+.leaflet-control-layers a:hover {
+    text-decoration: underline;
+}
+
+.d-flex {
+    margin-top: 10px;
+    width: 230px;
+    display: flex;
+}
+
+.d-flex button {
+    width: 50%;
+    margin: 0;
+    /* Removes any default margin */
+}
+
+.info.legend {
+    background: white;
+    padding: 6px 8px;
+    font: 14px/50px Arial, Helvetica, sans-serif;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    line-height: 18px;
+    color: #333;
+}
+
+.info.legend h4 {
+    margin: 0 0 5px;
+    color: #777;
+    font-weight: bold;
+}
+
+.info.legend i {
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin-right: 8px;
+    opacity: 0.7;
+}
+
+.info.legend span {
+    line-height: 18px;
+    color: #555;
+}
+
+.polygon-label {
+    font-size: 14px;
+    background-color: rgba(255, 255, 255, 0.6);
+    /* Light background */
+    color: black;
+    /* White text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.custom-icon .icon-wrapper {
+    position: relative;
+    display: inline-block;
+    padding: 8px;
+    border: 2px solid #333;
+    border-radius: 5px;
+    /* Adds padding around the image, making the rectangle */
+    /* background-color: rgba(255, 0, 0, 0.7); */
+    /* Semi-transparent background */
+    /* Adds a border around the rectangle */
+    /* Rounded corners, adjust as needed */
+}
+
+.custom-icon img {
+    width: 32px;
+    /* Ensure the image size matches the icon size */
+    height: 32px;
+}
+
+/* Bursa */
+.st0 .icon-wrapper {
+    position: relative;
+    display: inline-block;
+    padding: 8px;
+    border: 2px solid #333;
+    border-radius: 50%;
+    background-color: rgba(91, 50, 241, 0.7);
+}
+
+/* Edirne */
+.st1 .icon-wrapper {
+    position: relative;
+    display: inline-block;
+    padding: 8px;
+    border: 2px solid #333;
+    border-radius: 50%;
+    background-color: rgba(96, 96, 252, 0.7);
+}
+
+/* İstanbul Anadolu */
+.st3 .icon-wrapper {
+    position: relative;
+    display: inline-block;
+    padding: 8px;
+    border: 2px solid #333;
+    border-radius: 50%;
+    background-color: rgba(99, 188, 240, 0.7);
+}
+
+/* İstanbul Avrupa */
+.st4 .icon-wrapper {
+    position: relative;
+    display: inline-block;
+    padding: 8px;
+    border: 2px solid #333;
+    border-radius: 50%;
+    background-color: rgba(78, 66, 255, 0.7);
+}
+
+/* Antalya */
+.st5 .icon-wrapper {
+    position: relative;
+    display: inline-block;
+    padding: 8px;
+    border: 2px solid #333;
+    border-radius: 50%;
+    background-color: rgba(59, 59, 252, 0.7);
+}
+
+/* Isparta */
+.st6 .icon-wrapper {
+    position: relative;
+    display: inline-block;
+    padding: 8px;
+    border: 2px solid #333;
+    border-radius: 50%;
+    background-color: rgba(42, 109, 252, 0.7);
+}
+
+/* İzmir */
+.st7 .icon-wrapper {
+    position: relative;
+    display: inline-block;
+    padding: 8px;
+    border: 2px solid #333;
+    border-radius: 50%;
+    background-color: rgba(19, 110, 207, 0.7);
+}
+
+/* Denizli */
+.st8 .icon-wrapper {
+    position: relative;
+    display: inline-block;
+    padding: 8px;
+    border: 2px solid #333;
+    border-radius: 50%;
+    background-color: rgba(11, 55, 109, 0.7);
+}
+
+/* Samsun */
+.st9 .icon-wrapper {
+    position: relative;
+    display: inline-block;
+    padding: 8px;
+    border: 2px solid #333;
+    border-radius: 50%;
+    background-color: rgba(108, 190, 177, 0.7);
+}
+
+/* Kütahya */
+.st10 .icon-wrapper {
+    position: relative;
+    display: inline-block;
+    padding: 8px;
+    border: 2px solid #333;
+    border-radius: 50%;
+    background-color: rgba(80, 175, 230, 0.7);
+}
+
+/* Ankara */
+.st11 .icon-wrapper {
+    position: relative;
+    display: inline-block;
+    padding: 8px;
+    border: 2px solid #333;
+    border-radius: 50%;
+    background-color: rgba(91, 204, 219, 0.7);
+}
+
+/* Konya */
+.st12 .icon-wrapper {
+    position: relative;
+    display: inline-block;
+    padding: 8px;
+    border: 2px solid #333;
+    border-radius: 50%;
+    background-color: rgba(63, 181, 197, 0.7);
+}
+
+/* Kayseri */
+.st13 .icon-wrapper {
+    position: relative;
+    display: inline-block;
+    padding: 8px;
+    border: 2px solid #333;
+    border-radius: 50%;
+    background-color: rgba(59, 175, 159, 0.7);
+}
+
+/* Trabzon */
+.st14 .icon-wrapper {
+    position: relative;
+    display: inline-block;
+    padding: 8px;
+    border: 2px solid #333;
+    border-radius: 50%;
+    background-color: rgba(113, 190, 110, 0.7);
+}
+
+/* Batman */
+.st15 .icon-wrapper {
+    position: relative;
+    display: inline-block;
+    padding: 8px;
+    border: 2px solid #333;
+    border-radius: 50%;
+    background-color: rgba(88, 155, 114, 0.7);
+}
+
+/* Elazığ */
+.st16 .icon-wrapper {
+    position: relative;
+    display: inline-block;
+    padding: 8px;
+    border: 2px solid #333;
+    border-radius: 50%;
+    background-color: rgba(62, 126, 91, 0.7);
+}
+
+/* Erzurum */
+.st17 .icon-wrapper {
+    position: relative;
+    display: inline-block;
+    padding: 8px;
+    border: 2px solid #333;
+    border-radius: 50%;
+    background-color: rgba(79, 155, 85, 0.7);
+}
+
+/* Van */
+.st18 .icon-wrapper {
+    position: relative;
+    display: inline-block;
+    padding: 8px;
+    border: 2px solid #333;
+    border-radius: 50%;
+    background-color: rgba(56, 150, 84, 0.7);
+}
+
+/* Gaziantep */
+.st19 .icon-wrapper {
+    position: relative;
+    display: inline-block;
+    padding: 8px;
+    border: 2px solid #333;
+    border-radius: 50%;
+    background-color: rgba(42, 77, 48, 0.7);
+}
+
+/* Adana */
+.st20 .icon-wrapper {
+    position: relative;
+    display: inline-block;
+    padding: 8px;
+    border: 2px solid #333;
+    border-radius: 50%;
+    background-color: rgba(33, 90, 71, 0.7);
+}
+
+/* Kastamonu */
+.st21 .icon-wrapper {
+    position: relative;
+    display: inline-block;
+    padding: 8px;
+    border: 2px solid #333;
+    border-radius: 50%;
+    background-color: rgba(90, 220, 253, 0.7);
+}
+
+/* Sakarya */
+.st22 .icon-wrapper {
+    position: relative;
+    display: inline-block;
+    padding: 8px;
+    border: 2px solid #333;
+    border-radius: 50%;
+    background-color: rgba(88, 198, 235, 0.7);
+}
+
+/* Bursa */
+.st0 img {
+    width: 32px;
+    /* Ensure the image size matches the icon size */
+    height: 32px;
+}
+
+/* Edirne */
+.st1 img {
+    width: 32px;
+    /* Ensure the image size matches the icon size */
+    height: 32px;
+}
+
+/* İstanbul Anadolu */
+.st3 img {
+    width: 32px;
+    /* Ensure the image size matches the icon size */
+    height: 32px;
+}
+
+/* İstanbul Avrupa */
+.st4 img {
+    width: 32px;
+    /* Ensure the image size matches the icon size */
+    height: 32px;
+}
+
+/* Antalya */
+.st5 img {
+    width: 32px;
+    /* Ensure the image size matches the icon size */
+    height: 32px;
+}
+
+/* Isparta */
+.st6 img {
+    width: 32px;
+    /* Ensure the image size matches the icon size */
+    height: 32px;
+}
+
+/* İzmir */
+.st7 img {
+    width: 32px;
+    /* Ensure the image size matches the icon size */
+    height: 32px;
+}
+
+/* Denizli */
+.st8 img {
+    width: 32px;
+    /* Ensure the image size matches the icon size */
+    height: 32px;
+}
+
+/* Samsun */
+.st9 img {
+    width: 32px;
+    /* Ensure the image size matches the icon size */
+    height: 32px;
+}
+
+/* Kütahya */
+.st10 img {
+    width: 32px;
+    /* Ensure the image size matches the icon size */
+    height: 32px;
+}
+
+/* Ankara */
+.st11 img {
+    width: 32px;
+    /* Ensure the image size matches the icon size */
+    height: 32px;
+}
+
+/* Konya */
+.st12 img {
+    width: 32px;
+    /* Ensure the image size matches the icon size */
+    height: 32px;
+}
+
+/* Kayseri */
+.st13 img {
+    width: 32px;
+    /* Ensure the image size matches the icon size */
+    height: 32px;
+}
+
+/* Trabzon */
+.st14 img {
+    width: 32px;
+    /* Ensure the image size matches the icon size */
+    height: 32px;
+}
+
+/* Batman */
+.st15 img {
+    width: 32px;
+    /* Ensure the image size matches the icon size */
+    height: 32px;
+}
+
+/* Elazığ */
+.st16 img {
+    width: 32px;
+    /* Ensure the image size matches the icon size */
+    height: 32px;
+}
+
+/* Erzurum */
+.st17 img {
+    width: 32px;
+    /* Ensure the image size matches the icon size */
+    height: 32px;
+}
+
+/* Van */
+.st18 img {
+    width: 32px;
+    /* Ensure the image size matches the icon size */
+    height: 32px;
+}
+
+/* Gaziantep */
+.st19 img {
+    width: 32px;
+    /* Ensure the image size matches the icon size */
+    height: 32px;
+}
+
+/* Adana */
+.st20 img {
+    width: 32px;
+    /* Ensure the image size matches the icon size */
+    height: 32px;
+}
+
+/* Kastamonu */
+.st21 img {
+    width: 32px;
+    /* Ensure the image size matches the icon size */
+    height: 32px;
+}
+
+/* Sakarya */
+.st22 img {
+    width: 32px;
+    /* Ensure the image size matches the icon size */
+    height: 32px;
+}

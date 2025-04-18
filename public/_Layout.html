@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEİAŞ</title>
+    <link rel="stylesheet" href="styles/_Layout.css">
+
+    <!-- DataTables CSS CDN -->
+    <link href="https://cdn.datatables.net/v/dt/dt-2.0.8/datatables.min.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">
+    <!-- Font Awesome CSS for icons (optional) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+    <script type="module" src="scripts/checkLogin.js"></script>
+
+    <nav class="navbar fixed-top navbar-light bg-light">
+        <a class="navbar-brand">TEİAŞ</a>
+        <div class="mr-auto d-flex" id="navItem">
+            <a class="nav-link disabled classic clickable" data-dataname="home.html">Ana Sayfa</a>
+            <a class="nav-link disabled classic clickable" data-dataname="map.html">Harita</a>
+            <div class="nav-item dropdown ">
+                <a class="nav-link dropdown-toggle" style="color: rgb(109, 107, 107);" href="#" id="navbarDropdown"
+                    role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Rapor
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown"
+                    style="max-height: 300px; overflow-x: auto;">
+                    <a class="dropdown-item disabled report clickable" data-dataname="manualLayout.html">Manual
+                        Rapor</a>
+                    <a class="dropdown-item disabled report clickable" data-dataname="autoLayout.html">Oto Rapor</a>
+                </div>
+            </div>
+
+            <div class="nav-item dropdown ">
+                <a class="nav-link dropdown-toggle" style="color: rgb(109, 107, 107);" href="#" id="navbarDropdown"
+                    role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Veriler
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="dropdownMenu"
+                    style="max-height: 300px; overflow-x: auto;">
+                    <a class="dropdown-item fetch-data clickable" data-dataname="bina_genel_bilgi_processed">Bina Genel
+                        Bilgi</a>
+                    <a class="dropdown-item fetch-data clickable" data-dataname="bina_birim_maliyet">Bina Birim
+                        Maliyet</a>
+                    <a class="dropdown-item fetch-data clickable" data-dataname="bina_analiz_data_deterministic">Bina
+                        Analiz Data Deterministik</a>
+                    <a class="dropdown-item fetch-data clickable" data-dataname="bina_maliyet_bolge_katsayi">Bina
+                        Maliyet Bölge Katsayı</a>
+                    <a class="dropdown-item fetch-data clickable" data-dataname="bina_maliyet_zemin_katsayi">Bina
+                        Maliyet Zemin Katsayı</a>
+                    <a class="dropdown-item fetch-data clickable" data-dataname="cihaz_maliyet_deprem">Cihaz Maliyet
+                        Deprem</a>
+                    <a class="dropdown-item fetch-data clickable" data-dataname="diger_riskler">Diğer Riskler</a>
+                    <a class="dropdown-item fetch-data clickable" data-dataname="fill_foy_hatlar_data">Fill Föy Hatlar
+                        Data</a>
+                    <a class="dropdown-item fetch-data clickable" data-dataname="foy_input_file">Föy Input Dosyası</a>
+                    <a class="dropdown-item fetch-data clickable" data-dataname="genel_bilgi">TM Genel Bilgi</a>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="filter-container ml-auto mr-2">
+            <div class="dropdown">
+                <button class="btn dropdown-toggle filter-button" type="button" id="filterDropdown"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    szl2
+                </button>
+                <div class="dropdown-menu filter-dropdown-menu" aria-labelledby="filterDropdown">
+                    <a class="dropdown-item filter-option" href="#" data-value="Tümü">Tümü</a>
+                    <a class="dropdown-item filter-option" href="#" data-value="Sözleşme-2">Sözleşme-2</a>
+                    <a class="dropdown-item filter-option" href="#" data-value="Sözleşme-3">Sözleşme-3</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="toggle-container">
+            <div class="toggle-switch">
+                <div class="toggle-option active" data-value="ilk">İlk Teslim</div>
+                <div class="toggle-option" data-value="nihai">Nihai Teslim</div>
+                <div class="toggle-slider"></div>
+            </div>
+        </div>
+
+
+        <div class="ml-auto" style="display: none;">
+            <a class="nav-link disabled classic clickable download" href="http://144.122.103.206:5173/">
+                v2.0
+            </a>
+        </div>
+        <div class="ml-auto" style="display: none;">
+            <a class="nav-link disabled classic clickable download" href="./tpProject/tpSetup.exe" download>
+                <i class="fas fa-download"></i> Tp Project
+            </a>
+        </div>
+    </nav>
+
+    <main>
+        <iframe id="frame"></iframe>
+    </main>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Bootstrap Bundle with Popper.js (includes Popper.js) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.bundle.min.js"></script>
+
+    <!-- DataTables JS CDN -->
+    <script src="https://cdn.datatables.net/v/dt/dt-2.0.8/datatables.min.js"></script>
+
+    <!-- XLSX Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+
+    <!-- Charts CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+    <script type="module" src="scripts/_Layout.js"></script>
+</body>
+
+</html>

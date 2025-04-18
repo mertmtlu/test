@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veri Yönetim</title>
+    
+    <link rel="stylesheet" href="../styles/manageData.css">
+
+    <!-- DataTables CSS CDN -->
+    <link href="https://cdn.datatables.net/v/dt/dt-2.0.8/datatables.min.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">
+    <!-- Font Awesome CSS for icons (optional) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+    <div class="mainContent" id="mainContent" style="width: 100%;">
+        <div class="side-panel" id="sidePanel">
+            <div class="nav flex-column">
+                <div class="nav-item">
+                    <a data-toggle="tooltip" title="Click here to toggle table columns">
+                        <button class="btn btn-toggle d-flex align-items-center" data-toggle="collapse"
+                            data-target="#columns-collapse" aria-expanded="false">
+                            <i class="fas fa-angle-right mr-2"></i> Sutunlar
+                        </button>
+                    </a>
+                    <div class="collapse" id="columns-collapse">
+                        <div class="btn-toggle-nav">
+                            <button id="checkAllButton" type="button"
+                                class="btn btn-outline-primary btn-sm btn-block">Tümünü İşaretle</button>
+                            <button id="uncheckAllButton" type="button"
+                                class="btn btn-outline-secondary btn-sm btn-block">Tümünü Kaldır</button>
+                            <form id="columnForm">
+                                <!-- Checkboxes will be dynamically generated here -->
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <a data-toggle="tooltip" title="Click here to export data.">
+                        <button class="btn btn-toggle d-flex align-items-center" data-toggle="collapse"
+                            data-target="#process-collapse" aria-expanded="false">
+                            <i class="fas fa-angle-right mr-2"></i> Veriyi İşle
+                        </button>
+                    </a>
+                    <div class="collapse" id="process-collapse">
+                        <div class="btn-toggle-nav" style="margin-left: 10px;">
+                            <button id="exportButton" type="button"
+                                class="btn btn-outline-success btn-lg btn-block">Excel'e Aktar</button>
+                            <div class="nav-item">
+                                <a data-toggle="tooltip" title="Click here to toggle table columns">
+                                    <button class="btn btn-toggle d-flex align-items-center" data-toggle="collapse"
+                                        data-target="#chart-collapse" aria-expanded="false">
+                                        <i class="fas fa-angle-right mr-2"></i> Grafiğe Aktar
+                                    </button>
+                                </a>
+                                <div class="collapse" id="chart-collapse">
+                                    <div class="btn-toggle-nav" style="margin-left: 10px;">
+                                        <div id="plotAxis" style="margin-left: 10px;">
+                                            <div class="dropdown">
+                                                <button class="btn btn-outline-secondary dropdown-toggle btn-block"
+                                                    type="button" id="chartTypeDropdown" data-toggle="dropdown"
+                                                    aria-haspopup="true" aria-expanded="false">
+                                                    Grafik Tipi Seçin
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="chartTypeDropdown">
+                                                    <a class="dropdown-item" data-value="Bar Çizelgesi">Bar Çizelgesi</a>
+                                                    <a class="dropdown-item" data-value="Pasta Dilimi">Pasta Dilimi</a>
+                                                    <!-- TODO Add more options later -->
+                                                </div>
+
+                                                <button id="addDatasetBtn" class="btn btn-outline-primary btn-block"
+                                                    style="margin-top: 5px;">Grafiğe Veri Ekle</button>
+                                            </div>
+
+                                            <div id="chartDropdownGroups">
+                                                <div>
+                                                    <div class="dropdown" style="margin-top: 10px;">
+                                                        <label for="html">X Ekseni</label>
+                                                        <button
+                                                            class="btn btn-outline-secondary dropdown-toggle btn-block"
+                                                            type="button" id="xAxisDropdown" data-toggle="dropdown"
+                                                            aria-haspopup="true" aria-expanded="false">
+                                                            Veri Seçin
+                                                        </button>
+                                                        <div id="xAxisDiv" class="dropdown-menu"
+                                                            aria-labelledby="xAxisDropdown">
+                                                            <!-- Axis names will be dynamically generated here -->
+                                                        </div>
+                                                        <label for="html" style="margin-top: 10px;">Y Ekseni:</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <button id="applyChart" class="btn btn-primary btn-lg btn-block"
+                                                style="margin-top: 5px;">Uygula</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="resizer" id="resizer"></div>
+
+        <div id="content" style="margin-left: 510px;">
+            <div class="nav-item" style="width: 100%; flex: 1;">
+                <a data-toggle="tooltip" title="Click here to toggle table">
+                    <button class="btn btn-toggle btn-block d-flex align-items-center" data-toggle="collapse"
+                        data-target="#table-collapse" aria-expanded="false">
+                        <i class="fas fa-angle-right mr-2"></i> Tablo
+                    </button>
+                </a>
+                <div class="collapse" id="table-collapse">
+                    <table id="dataTable" class="display" style="width:100%; overflow-x: auto; flex: 1;">
+                        <!-- Table rows will be dynamically generated here -->
+                    </table>
+                </div>
+            </div>
+
+            <div class="nav-item" style="width: 100%; height: 100%; flex: 1;" id="TableChartContainer">
+                <a data-toggle="tooltip" title="Click here to toggle chart">
+                    <button class="btn btn-toggle btn-block d-flex align-items-center" data-toggle="collapse"
+                        data-target="#chart-show-collapse" aria-expanded="false">
+                        <i class="fas fa-angle-right mr-2"></i> Grafik
+                    </button>
+                </a>
+                <div class="collapse" id="chart-show-collapse">
+                    <div id="chartContent" class="chartDiv">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Bootstrap Bundle with Popper.js (includes Popper.js) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.bundle.min.js"></script>
+
+    <!-- DataTables JS CDN -->
+    <script src="https://cdn.datatables.net/v/dt/dt-2.0.8/datatables.min.js"></script>
+
+    <!-- XLSX Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+
+    <!-- Charts CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+    <script src="../scripts/manageData/main.js"></script>
+
+</body>
+
+</html>

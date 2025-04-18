@@ -1,0 +1,293 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    height: 100vh;
+    overflow-x: hidden;
+    background-color: #f8f9fa;
+}
+
+.containerContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.title {
+    margin-top: 30px;
+    margin-left: 50px;
+}
+
+.dataTables {
+    display: flex;
+    flex: 1;
+    gap: 20px;
+}
+
+.columnLayout {
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border-radius: 5px;
+    border-width: 11px;
+    display: flex;
+    flex-direction: column;
+}
+
+.rowLayout {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+.nav-link {
+    color: #007bff;
+}
+
+.nav-link.disabled {
+    color: #6c757d;
+}
+
+.map-container {
+    position: relative;
+    flex-grow: 1;
+}
+
+#map {
+    height: 100%;
+    width: 100%;
+}
+
+.aside-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 50px;
+    background-color: #f0f0f0;
+    transition: width 0.3s;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+.clickable-cell:hover {
+    cursor: pointer;
+    background-color: #e0f1f5;
+}
+
+/* Expanded menu width */
+.aside-menu.open {
+    width: 300px;
+}
+
+/* Toggle button styling */
+.toggle-btn {
+    transition: width 0.3s;
+    position: absolute;
+    top: 20px;
+    left: 10px;
+    width: 30px;
+    height: 30px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Adjust button position in open state */
+.aside-menu.open .toggle-btn {
+    transition: width 0.3s;
+    width: 280px;
+}
+
+/* Content inside the menu */
+.menu-content {
+    padding: 60px 20px 20px 20px;
+    color: #333;
+}
+
+/* Hidden content in closed state */
+.aside-menu:not(.open) .menu-content {
+    display: none;
+}
+
+/* Styles for the toggle button */
+.custom-toggle {
+    background-color: #f7f7f7;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    transition: background-color 0.3s ease, max-height 0.3s ease;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Aligns text to the left */
+    gap: 10px; /* Adds space between the indicator and the text */
+}
+
+/* Hover effect for the toggle button */
+.custom-toggle:hover {
+    background-color: #e2e2e2;
+}
+
+/* Active state for the toggle button */
+.custom-toggle.active {
+    background-color: #d0d0d0;
+}
+
+/* Styles for the indicator (chevron) */
+.custom-toggle .indicator {
+    transition: transform 0.3s ease;
+    transform: rotate(0deg); /* Initial position pointing right */
+}
+
+/* Rotate indicator when the section is active */
+.custom-toggle.active .indicator {
+    transform: rotate(90deg); /* Rotate to point downwards when active */
+}
+
+/* Styles for the collapsible content */
+.collapsible-content {
+    /* padding: 10px; */
+    border-radius: 5px;
+    /* margin-bottom: 10px; */
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    max-height: 0;
+    /* overflow: hidden; */
+    transition: height 0.3s ease;
+    max-height: 0px;
+}
+
+#table1 th,
+#table2 th,
+#table3 th,
+#table4 th,
+#table5 th,
+#table6 th,
+#table7 th,
+#table8 th {
+    font: 13px Arial, sans-serif;
+    font-weight: bold;
+    white-space: pre;
+    height: 75px !important;
+}
+
+#table1 td,
+#table2 td,
+#table3 td {
+    overflow-wrap: normal;
+    height: 50px !important;
+    font: 12px Arial, sans-serif;
+}
+
+#table4 td, 
+#table5 td, 
+#table6 td, 
+#table7 td, 
+#table8 td {
+    overflow-wrap: normal;
+    width: 200px !important;
+    height: 60px !important;
+    font: 12px Arial, sans-serif;
+    word-break: break-word;
+}
+
+#table1 tr:nth-last-child(-n+2) td {
+    color: red;
+}
+
+#table3 tr:nth-last-child(-n+1) td {
+    color: red;
+}
+
+#table4 tr:nth-last-child(-n+4) td,
+#table5 tr:nth-last-child(-n+4) td,
+#table6 tr:nth-last-child(-n+4) td,
+#table7 tr:nth-last-child(-n+4) td,
+#table8 tr:nth-last-child(-n+4) td {
+    color: red;
+}
+
+#table4 tr:nth-last-child(-n+1) td,
+#table5 tr:nth-last-child(-n+1) td,
+#table6 tr:nth-last-child(-n+1) td,
+#table7 tr:nth-last-child(-n+1) td,
+#table8 tr:nth-last-child(-n+1) td {
+    color: black;
+    background-color: rgb(236, 236, 236);
+}
+
+.tm-selection {
+    display: flex;
+    justify-content: space-between; /* Distribute buttons and text evenly */
+    align-items: center; /* Vertically center the buttons and text */
+    position: fixed; /* Position relative to the parent container */
+    bottom: 0; /* Stick to the bottom of the parent container */
+    left: 0;
+    width: 300px;
+    padding: 10px; /* Add padding for spacing */
+    background-color: #f9f9f9; /* Optional: background for the container */
+    z-index: 100;
+}
+
+.circle-button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #cccccc; /* Light gray border */
+    background-color: white; /* White background */
+    color: #333333; /* Dark gray text color */
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.circle-button:hover {
+    background-color: #f0f0f0; /* Light gray background on hover */
+    color: #007BFF; /* Blue color on hover for contrast */
+}
+
+.circle-button:focus {
+    outline: none;
+    border-color: #007BFF; /* Blue border on focus */
+}
+
+.tm-text {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0 20px; /* Space between the text and buttons */
+}
+
+.col {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,279 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    background-color: #f4f4f9;
+}
+
+section {
+    min-height: 100vh;
+}
+
+.image-section {
+    background-color: #ffffff;
+}
+
+.container {
+    height: 100vh;
+}
+
+.columns-wrapper {
+    min-height: 10vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+    gap: 10px;
+}
+
+/* Individual column styling */
+.column {
+    padding-top: 5vh; /* Keep some space at the top */
+    width: 50%;
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center elements horizontally */
+    text-align: center;
+}
+
+
+/* Image box styling */
+.image-box {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    width: 97%;
+    height: fit-content;
+}
+
+.image-box:hover {
+    transform: scale(1.01);
+}
+
+.image-box img {
+    max-height: 10vh;
+    width: auto;
+}
+
+.column .text {
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #555;
+}
+
+.text-content {
+    text-align: center;
+    margin-top: 40px; /* Add more space between images and text */
+}
+
+.text-content h2 {
+    font-size: 2.5em; /* Smaller font size for better readability */
+    font-weight: 700;
+    color: #333; /* Darker text for better contrast */
+}
+
+.text-content p {
+    font-size: 1.5em;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.text-content strong {
+    font-size: 1.7em; /* Larger font for names */
+    font-weight: bold;
+    color: #333;
+}
+
+/* Adjust padding for text-elements */
+.text-elements {
+    padding: 30px;
+    margin: 0 auto;
+}
+
+hr {
+    border: none;
+    border-top: 2px solid #ccc;
+    width: 50%;
+    margin: 20px auto;
+}
+
+/* Map Section Styling */
+.map-section {
+    min-height: 100vh !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9;
+}
+
+.map-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.map {
+    width: 90%;
+    height: 90%;
+    border-radius: 10px;
+}
+
+.regions-section {
+    background-color: rgb(155, 151, 151);
+}
+
+/* Texts */
+.st23 {
+    fill: #ffffff;
+}
+
+/* Border */
+.st2 {
+    fill: #000000;
+}
+
+/* Bursa */
+.st0 {
+    fill: #5b32f1;
+}
+
+/* Edirne */
+.st1 {
+    fill: #6060fc;
+}
+
+/* İstanbul Anadolu */
+.st3 {
+    fill: #63bcf0;
+}
+
+/* İstanbul Avrupa */
+.st4 {
+    fill: #4e42ff;
+}
+
+/* Antalya */
+.st5 {
+    fill: #3b3bfc;
+}
+
+/* Isparta */
+.st6 {
+    fill: #2a6dfc;
+}
+
+/* İzmir */
+.st7 {
+    fill: #136ecf;
+}
+
+/* Denizli */
+.st8 {
+    fill: #0b376d;
+}
+
+/* Samsun */
+.st9 {
+    fill: #6cbeb1;
+}
+
+/* Kütahya */
+.st10 {
+    fill: #50afe6;
+}
+
+/* Ankara */
+.st11 {
+    fill: #5bccdb;
+}
+
+/* Konya */
+.st12 {
+    fill: #3fb5c5;
+}
+
+/* Kayseri */
+.st13 {
+    fill: #3baf9f;
+}
+
+/* Trabzon */
+.st14 {
+    fill: #71be6e;
+}
+
+/* Batman */
+.st15 {
+    fill: #589b72;
+}
+
+/* Elazığ */
+.st16 {
+    fill: #3e7e5b;
+}
+
+/* Erzurum */
+.st17 {
+    fill: #4f9b55;
+}
+
+/* Van */
+.st18 {
+    fill: #389654;
+}
+
+/* Gaziantep */
+.st19 {
+    fill: #2a4d30;
+}
+
+/* Adana */
+.st20 {
+    fill: #215a47;
+}
+
+/* Kastamonu */
+.st21 {
+    fill: #5adcfd;
+}
+
+/* Sakarya */
+.st22 {
+    fill: #58c6eb;
+}
+
+@media (max-width: 1200px) {
+    .columns-wrapper {
+        flex-direction: column; /* Stack columns vertically */
+        align-items: center;
+    }
+
+    .column {
+        width: 100%;
+    }
+
+    .image-box img {
+        max-width: 100%;
+        min-height: 10vh;
+    }
+
+    .text-content h2 {
+        font-size: 2em; /* Reduce heading size */
+    }
+
+    .text-content p, .text-content strong {
+        font-size: 1.2em;
+    }
+}

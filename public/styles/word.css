@@ -1,0 +1,121 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    flex-direction: column;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+.content-wrapper {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+    /* flex-grow: 1; */
+}
+
+/* Aside menu styles */
+.aside-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 50px;
+    background-color: #f0f0f0; /* Light color to contrast with white page */
+    transition: width 0.3s;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    z-index: 1000;
+}
+
+/* Expanded menu width */
+.aside-menu.open {
+    width: 300px;
+}
+
+/* Toggle button styling */
+.toggle-btn {
+    transition: width 0.3s;
+    position: absolute;
+    top: 20px;
+    left: 10px;
+    width: 30px;
+    height: 30px;
+    background-color: #007bff; /* Blue button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Adjust button position in open state */
+.aside-menu.open .toggle-btn {
+    transition: width 0.3s;
+    width: 280px;
+}
+
+/* Content inside the menu */
+.menu-content {
+    padding: 60px 20px 20px 20px;
+    color: #333;
+}
+
+/* Hidden content in closed state */
+.aside-menu:not(.open) .menu-content {
+    display: none;
+}
+
+/* Additional styling for your custom content */
+#templateDropdown,
+#importDocx,
+#importConfig,
+#saveTemplateBtn,
+#saveConfigBtn {
+    margin-top: 10px;
+    width: 100%;
+}
+
+#close-sidebar-btn {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+
+#content {
+    flex: 1;
+    /* padding: 20px; */
+    overflow-y: auto;
+    transition: margin-left 0.3s ease;
+    margin-left: 10px;
+    width: auto;
+}
+
+h1,
+h2 {
+    margin-top: 0;
+}
+
+.fileInput {
+    display: none;
+}
+
+.contentFrame {
+    width: 100%;
+    height: 100%;
+    border: none;
+    padding-left: 50px;
+    
+}

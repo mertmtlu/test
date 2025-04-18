@@ -1,0 +1,11 @@
+{
+    "watch": ["server.js", "next.config.js", "public/**/*"],
+    "ext": "js,json,html,css",
+    "ignore": ["node_modules", ".next"],
+    "env": {
+      "NODE_ENV": "development"
+    },
+    "verbose": true,
+    "colours": true,
+    "delay": 500
+  }
