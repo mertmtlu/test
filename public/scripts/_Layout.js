@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-sessionStorage.setItem('teslimDurumu', 'ilk');
+sessionStorage.setItem('teslimDurumu', 'nihai');
 
 fetchFrom(1000, "tapu_parsel_data")
 fetchFrom(1000, "tm_parsel_data")

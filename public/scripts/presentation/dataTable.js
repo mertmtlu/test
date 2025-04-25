@@ -367,16 +367,14 @@ export function createDataTable(selector, rawData, applyConditionalStyling = '')
                                     : '-03';
 
                             const cadFiles = await searchCadFile(areaID, tmID, 'SRL', preference);
-                            const pdfFiles = await searchCadFile(areaID, tmID, 'EK-A', preference);
 
-
-                            if ((!cadFiles.files || cadFiles.count === 0) && (!pdfFiles.files || pdfFiles.count === 0)) {
+                            if ((!cadFiles.files || cadFiles.count === 0)) {
                                 showAlert('Eşleşen pdf dosyası veya rölöve bulunamadı.');
                                 return;
                             }
 
                             // Show the popup with the CAD files
-                            showCadFilesPopup([...cadFiles.files, ...pdfFiles.files], originalEvent); // Example cadFiles: ['file1.dwg', 'file2.dwg', ...]
+                            showCadFilesPopup(cadFiles.files, originalEvent); 
                         });
                     }
                 });
